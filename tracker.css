@@ -20,7 +20,7 @@ body:before{
     content: "";
     height: 50%;
     width: 100%;
-    background:rgb(172, 150, 150) ;
+    background:#d60059;
     bottom:0;
 
 }
