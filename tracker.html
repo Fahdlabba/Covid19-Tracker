@@ -1,0 +1,80 @@
+<html lang="en">
+    <head>
+        <title>Covid tracker</title>
+        <link rel="stylesheet" type="text/css" href="tracker.css">
+        <link rel="shortcut icon" type="img/x-icon" href="cov.png">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.7">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="io">
+                <img src="covid19.jpg">
+            </div>
+            <h2>Covid-19 cases in <span id="country"></span> <img src="" id="flag"></h2>
+            <div class="board">
+                <div class="card1 a">
+                    <i class="fas fa-tachometer"></i>
+                    <h5>🤒 Active cases</h5>
+                    <span id="active"></span>
+
+                </div>
+                <div class="card1 ca">
+                    <i class="fas fa-th-list"></i>
+                    <h5>😷 Total cases</h5>
+                    <span id="cases"></span>
+                </div>
+                <div class="card1 cr">
+                     <i class="fas fa-times-circle"></i>
+                     <h5>🤢 Critical cases</h5>
+                     <span id="critical"></span>
+                    </div>
+                    <div class="card1 d">
+                        <i class="fas fa-times"></i>
+                        <h5>❌ Total Deaths</h5>
+                        <span id="death"></span>
+                    </div>
+                    <div class="card1 r">
+                        <i class="fas fa-check-square"></i>
+                        <h5>✅ Recovred cases</h5>
+                        <span id="recovred"></span>
+                    </div>
+                    <div class="card1 t">
+                        <i class="fas fa-eye"></i>
+                        <h5>🧪 Total tests Done</h5>
+                        <span id="test"></span>
+                    </div>
+                </div>
+            </div>
+<script type="text/javascript">
+    fetch("https://corona.lmao.ninja/v2/countries/Tunisia")
+        .then((Response)=>{
+            return Response.json();
+
+        })
+        .then((data)=>{
+            document.getElementById("flag").src =data.countryInfo.flag;
+            document.getElementById("country").innerHTML = data.country.toLocaleString();
+            document.getElementById("cases").innerHTML = data.cases.toLocaleString();
+            document.getElementById("critical").innerHTML = data.critical.toLocaleString();
+            document.getElementById("death").innerHTML = data.deaths.toLocaleString();
+            document.getElementById("test").innerHTML = data.tests.toLocaleString();
+            document.getElementById("active").innerHTML = data.active.toLocaleString();
+            document.getElementById("recovred").innerHTML = data.recovered.toLocaleString();
+        })
+     
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+    </body>
+</html>
